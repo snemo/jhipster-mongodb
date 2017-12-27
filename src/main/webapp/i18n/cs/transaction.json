@@ -1,0 +1,32 @@
+{
+    "mongodbApp": {
+        "transaction" : {
+            "home": {
+                "title": "Transactions",
+                "createLabel": "Vytvořit Transaction",
+                "createOrEditLabel": "Vytvořit nebo upravit Transaction"
+            },
+            "created": "Byl vytvořen potomek entity Transaction s identifikátorem {{ param }}",
+            "updated": "Potomek entity Transaction s identifikátorem {{ param }} byl upravený.",
+            "deleted": "Potomek entity Transaction s identifikátorem {{ param }} bol smazaný.",
+            "delete": {
+                "question": "Jste si jisti, že chcete smazat Transaction {{ id }}?"
+            },
+            "detail": {
+                "title": "Transaction"
+            },
+            "transactionDate": "Transaction Date",
+            "product": "Product",
+            "price": "Price",
+            "paymentType": "Payment Type",
+            "customerName": "Customer Name",
+            "city": "City",
+            "state": "State",
+            "country": "Country",
+            "accountCreationDate": "Account Creation Date",
+            "lastLogin": "Last Login",
+            "latitude": "Latitude",
+            "longitude": "Longitude"
+        }
+    }
+}

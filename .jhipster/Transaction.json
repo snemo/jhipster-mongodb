@@ -1,0 +1,59 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "transactionDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "product",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "paymentType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "accountCreationDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "lastLogin",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "latitude",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "longitude",
+            "fieldType": "Double"
+        }
+    ],
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "transaction",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

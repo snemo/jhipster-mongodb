@@ -1,0 +1,88 @@
+<div>
+    <h2>
+        <span jhiTranslate="mongodbApp.transaction.home.title">Transactions</span>
+        <button class="btn btn-primary float-right jh-create-entity create-transaction" [routerLink]="['/', { outlets: { popup: ['transaction-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="mongodbApp.transaction.home.createLabel">
+            Create new Transaction
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="transactions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="transactionDate"><span jhiTranslate="mongodbApp.transaction.transactionDate">Transaction Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="product"><span jhiTranslate="mongodbApp.transaction.product">Product</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="price"><span jhiTranslate="mongodbApp.transaction.price">Price</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="paymentType"><span jhiTranslate="mongodbApp.transaction.paymentType">Payment Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="customerName"><span jhiTranslate="mongodbApp.transaction.customerName">Customer Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="city"><span jhiTranslate="mongodbApp.transaction.city">City</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="state"><span jhiTranslate="mongodbApp.transaction.state">State</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="country"><span jhiTranslate="mongodbApp.transaction.country">Country</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="accountCreationDate"><span jhiTranslate="mongodbApp.transaction.accountCreationDate">Account Creation Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lastLogin"><span jhiTranslate="mongodbApp.transaction.lastLogin">Last Login</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="latitude"><span jhiTranslate="mongodbApp.transaction.latitude">Latitude</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="longitude"><span jhiTranslate="mongodbApp.transaction.longitude">Longitude</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let transaction of transactions ;trackBy: trackId">
+                <td><a [routerLink]="['../transaction', transaction.id ]">{{transaction.id}}</a></td>
+                <td>{{transaction.transactionDate | date:'medium'}}</td>
+                <td>{{transaction.product}}</td>
+                <td>{{transaction.price}}</td>
+                <td>{{transaction.paymentType}}</td>
+                <td>{{transaction.customerName}}</td>
+                <td>{{transaction.city}}</td>
+                <td>{{transaction.state}}</td>
+                <td>{{transaction.country}}</td>
+                <td>{{transaction.accountCreationDate | date:'medium'}}</td>
+                <td>{{transaction.lastLogin | date:'medium'}}</td>
+                <td>{{transaction.latitude}}</td>
+                <td>{{transaction.longitude}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../transaction', transaction.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'transaction/'+ transaction.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'transaction/'+ transaction.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="transactions && transactions.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

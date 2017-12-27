@@ -1,0 +1,70 @@
+
+<div *ngIf="transaction">
+    <h2><span jhiTranslate="mongodbApp.transaction.detail.title">Transaction</span> {{transaction.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="mongodbApp.transaction.transactionDate">Transaction Date</span></dt>
+        <dd>
+            <span>{{transaction.transactionDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="mongodbApp.transaction.product">Product</span></dt>
+        <dd>
+            <span>{{transaction.product}}</span>
+        </dd>
+        <dt><span jhiTranslate="mongodbApp.transaction.price">Price</span></dt>
+        <dd>
+            <span>{{transaction.price}}</span>
+        </dd>
+        <dt><span jhiTranslate="mongodbApp.transaction.paymentType">Payment Type</span></dt>
+        <dd>
+            <span>{{transaction.paymentType}}</span>
+        </dd>
+        <dt><span jhiTranslate="mongodbApp.transaction.customerName">Customer Name</span></dt>
+        <dd>
+            <span>{{transaction.customerName}}</span>
+        </dd>
+        <dt><span jhiTranslate="mongodbApp.transaction.city">City</span></dt>
+        <dd>
+            <span>{{transaction.city}}</span>
+        </dd>
+        <dt><span jhiTranslate="mongodbApp.transaction.state">State</span></dt>
+        <dd>
+            <span>{{transaction.state}}</span>
+        </dd>
+        <dt><span jhiTranslate="mongodbApp.transaction.country">Country</span></dt>
+        <dd>
+            <span>{{transaction.country}}</span>
+        </dd>
+        <dt><span jhiTranslate="mongodbApp.transaction.accountCreationDate">Account Creation Date</span></dt>
+        <dd>
+            <span>{{transaction.accountCreationDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="mongodbApp.transaction.lastLogin">Last Login</span></dt>
+        <dd>
+            <span>{{transaction.lastLogin | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="mongodbApp.transaction.latitude">Latitude</span></dt>
+        <dd>
+            <span>{{transaction.latitude}}</span>
+        </dd>
+        <dt><span jhiTranslate="mongodbApp.transaction.longitude">Longitude</span></dt>
+        <dd>
+            <span>{{transaction.longitude}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'transaction/'+ transaction.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

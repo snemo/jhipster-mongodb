@@ -1,0 +1,91 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTransactionLabel" jhiTranslate="mongodbApp.transaction.home.createOrEditLabel">Create or edit a Transaction</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!transaction.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="transaction.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mongodbApp.transaction.transactionDate" for="field_transactionDate">Transaction Date</label>
+            <div class="d-flex">
+                <input id="field_transactionDate" type="datetime-local" class="form-control" name="transactionDate" [(ngModel)]="transaction.transactionDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mongodbApp.transaction.product" for="field_product">Product</label>
+            <input type="text" class="form-control" name="product" id="field_product"
+                [(ngModel)]="transaction.product" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mongodbApp.transaction.price" for="field_price">Price</label>
+            <input type="number" class="form-control" name="price" id="field_price"
+                [(ngModel)]="transaction.price" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mongodbApp.transaction.paymentType" for="field_paymentType">Payment Type</label>
+            <input type="text" class="form-control" name="paymentType" id="field_paymentType"
+                [(ngModel)]="transaction.paymentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mongodbApp.transaction.customerName" for="field_customerName">Customer Name</label>
+            <input type="text" class="form-control" name="customerName" id="field_customerName"
+                [(ngModel)]="transaction.customerName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mongodbApp.transaction.city" for="field_city">City</label>
+            <input type="text" class="form-control" name="city" id="field_city"
+                [(ngModel)]="transaction.city" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mongodbApp.transaction.state" for="field_state">State</label>
+            <input type="text" class="form-control" name="state" id="field_state"
+                [(ngModel)]="transaction.state" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mongodbApp.transaction.country" for="field_country">Country</label>
+            <input type="text" class="form-control" name="country" id="field_country"
+                [(ngModel)]="transaction.country" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mongodbApp.transaction.accountCreationDate" for="field_accountCreationDate">Account Creation Date</label>
+            <div class="d-flex">
+                <input id="field_accountCreationDate" type="datetime-local" class="form-control" name="accountCreationDate" [(ngModel)]="transaction.accountCreationDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mongodbApp.transaction.lastLogin" for="field_lastLogin">Last Login</label>
+            <div class="d-flex">
+                <input id="field_lastLogin" type="datetime-local" class="form-control" name="lastLogin" [(ngModel)]="transaction.lastLogin"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mongodbApp.transaction.latitude" for="field_latitude">Latitude</label>
+            <input type="number" class="form-control" name="latitude" id="field_latitude"
+                [(ngModel)]="transaction.latitude" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="mongodbApp.transaction.longitude" for="field_longitude">Longitude</label>
+            <input type="number" class="form-control" name="longitude" id="field_longitude"
+                [(ngModel)]="transaction.longitude" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

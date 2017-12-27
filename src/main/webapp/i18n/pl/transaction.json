@@ -1,0 +1,32 @@
+{
+    "mongodbApp": {
+        "transaction" : {
+            "home": {
+                "title": "Transactions",
+                "createLabel": "Dodaj Transaction",
+                "createOrEditLabel": "Dodaj lub edytuj: Transaction"
+            },
+            "created": "Utworzono nowy Transaction z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Transaction z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Transaction z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Transaction {{ id }}?"
+            },
+            "detail": {
+                "title": "Transaction"
+            },
+            "transactionDate": "Transaction Date",
+            "product": "Product",
+            "price": "Price",
+            "paymentType": "Payment Type",
+            "customerName": "Customer Name",
+            "city": "City",
+            "state": "State",
+            "country": "Country",
+            "accountCreationDate": "Account Creation Date",
+            "lastLogin": "Last Login",
+            "latitude": "Latitude",
+            "longitude": "Longitude"
+        }
+    }
+}
